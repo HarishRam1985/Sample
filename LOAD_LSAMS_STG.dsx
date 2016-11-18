@@ -6,13 +6,13 @@ BEGIN HEADER
    ToolInstanceID "ORIGINATIONS_DEV"
    MDISVersion "1.0"
    Date "2016-11-18"
-   Time "15.48.42"
+   Time "15.52.03"
    ServerVersion "9.1"
 END HEADER
 BEGIN DSJOB
    Identifier "LOAD_LSAMS_STG"
    DateModified "2016-11-18"
-   TimeModified "15.31.11"
+   TimeModified "15.51.26"
    BEGIN DSRECORD
       Identifier "ROOT"
       OLEType "CJobDefn"
@@ -70,7 +70,7 @@ BEGIN DSJOB
       BEGIN DSSUBRECORD
          Owner "APT"
          Name "IdentList"
-         Value "Sequential_File_0|Copy_3|LSAMS"
+         Value "Sequential_File_0|Copy_3|LSAMS_INSERT"
       END DSSUBRECORD
       BEGIN DSSUBRECORD
          Owner "APT"
@@ -122,7 +122,7 @@ copy
 ;
 
 #################################################################
-#### STAGE: LSAMS
+#### STAGE: LSAMS_INSERT
 ## Operator
 pxbridge
 ## Operator options
@@ -158,7 +158,7 @@ pxbridge
    
 
 ## General options
-[ident('LSAMS'); jobmon_ident('LSAMS')]
+[ident('LSAMS_INSERT'); jobmon_ident('LSAMS_INSERT')]
 ## Inputs
 0< [] 'Copy_3:DSLink5.v'
 ;
@@ -214,7 +214,7 @@ pxbridge
       StageXSize "48|48|48"
       StageYSize "48|48|48"
       ContainerViewSizing "0000 0000 1114 0611 0000 0001 0000 0000"
-      StageNames "Sequential_File_0|Copy_3|LSAMS"
+      StageNames "Sequential_File_0|Copy_3|LSAMS_INSERT"
       StageTypeIDs "PxSequentialFile|PxCopy|ODBCConnectorPX"
       LinkNames "DSLink2|DSLink5| "
       LinkHasMetaDatas "True|True| "
@@ -990,7 +990,7 @@ pxbridge
       Identifier "V0S6"
       OLEType "CCustomStage"
       Readonly "0"
-      Name "LSAMS"
+      Name "LSAMS_INSERT"
       NextID "2"
       InputPins "V0S6P1"
       StageType "ODBCConnectorPX"
@@ -1144,14 +1144,14 @@ BEGIN DSEXECJOB
       F28 "\\Jobs\\NEUSTAR"
       F29 "0"
       F30 "0"
-      F31 "2016-11-18 15:31:12"
+      F31 "2016-11-18 15:51:26"
       F32 "3"
       F34 "0\V1\VLINUX\V0\V\V#DSProjectARTOptions#\V1252\V\V\V\V\V\V0\V0"
-      F35 "Sequential_File_0\VCopy_3\VLSAMS"
+      F35 "Sequential_File_0\VCopy_3\VLSAMS_INSERT"
       F36 "vrisdev02.chec.local"
       F37 "ORIGINATIONS_DEV"
       F38 "0"
-      F39 "LOAD_LSAMS_STG.Sequential_File_0\VLOAD_LSAMS_STG.Copy_3\VLOAD_LSAMS_STG.LSAMS"
+      F39 "LOAD_LSAMS_STG.Sequential_File_0\VLOAD_LSAMS_STG.Copy_3\VLOAD_LSAMS_STG.LSAMS_INSERT"
       F41 "0"
       F43 ",,,,"
    END DSRECORD
@@ -1176,7 +1176,7 @@ BEGIN DSEXECJOB
       F1 "OUTPIN"
       F3 "9.1///55/C"
       F5 "11"
-      F16 "LOAD_LSAMS_STG.Copy_3\VLOAD_LSAMS_STG.LSAMS"
+      F16 "LOAD_LSAMS_STG.Copy_3\VLOAD_LSAMS_STG.LSAMS_INSERT"
       F21 "NEUSID\VBATCHID\VLOAN\VSEQUENCE\VPHONETYPE\VPHONENUMB\VMOBILEFLAG\VAUTHTOCONT\VDECISION\VACTIONSTS\VACTIONDTTM"
       F22 "0\V0\V0\V0\V0\V0\V0\V0\V0\V0\V0"
       F25 "2\V2\V2\V2\V12\V12\V12\V12\V12\V12\V12"
@@ -1189,7 +1189,7 @@ BEGIN DSEXECJOB
       F50 "\V"
    END DSRECORD
    BEGIN DSRECORD
-      Identifier "LOAD_LSAMS_STG.LSAMS"
+      Identifier "LOAD_LSAMS_STG.LSAMS_INSERT"
       F1 "STAGE"
       F2 "CUSTOM"
       F3 "9.1///55/C"
@@ -1199,7 +1199,7 @@ BEGIN DSEXECJOB
       F14 "3.5\Vccodbc\V1.0\VV1;3.5::ccodbc\Vccodbc\V1.0\Vlink\V-1\V0\V0\Vfalse\VODBCConnector\VEE\Vtarget\V/Connection/DataSource\V/Connection/Username\V/Connection/Password\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>2</Context><Variant type='string'>3.5</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>1</RCP></Common><Connection><DataSource modified='1' type='string'><![CDATA[ISERVDEV_AS400]]></DataSource><Username modified='1' type='string'><![CDATA[sqllnk]]></Username><Password modified='1' type='protectedstring'><![CDATA[{iisenc}tj44zCIaOklwqvZ6ThCkAQ==]]></Password></Connection><Usage><WriteMode type='int'><![CDATA[0]]></WriteMode><GenerateSQL modified='1' type='bool'><![CDATA[1]]></GenerateSQL><TableName modified='1' type='string'><![CDATA[LSAMSRECV.NEINBD00W]]></TableName><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL></SQL><TableAction collapsed='1' type='int'><![CDATA[0]]></TableAction><Transaction><RecordCount type='int'><![CDATA[2000]]></RecordCount></Transaction><Session><IsolationLevel type='int'><![CDATA[1]]></IsolationLevel><AutocommitMode type='int'><![CDATA[0]]></AutocommitMode><ArraySize type='int'><![CDATA[2000]]></ArraySize><SchemaReconciliation><FailOnSizeMismatch modified='1' type='bool'><![CDATA[0]]></FailOnSizeMismatch><FailOnTypeMismatch modified='1' type='bool'><![CDATA[0]]></FailOnTypeMismatch><FailOnCodePageMismatch type='bool'><![CDATA[0]]></FailOnCodePageMismatch><DropUnmatchedFields type='bool'><![CDATA[1]]></DropUnmatchedFields></SchemaReconciliation><CodePage collapsed='1' type='int'><![CDATA[0]]></CodePage><FailOnRowErrorPX type='bool'><![CDATA[1]]></FailOnRowErrorPX></Session><Logging><LogColumnValues collapsed='1' type='bool'><![CDATA[0]]></LogColumnValues></Logging><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter></Usage></Properties >"
       F16 "ODBCConnectorPX"
       F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0"
-      F31 "LOAD_LSAMS_STG.LSAMS"
+      F31 "LOAD_LSAMS_STG.LSAMS_INSERT"
       F32 "-1.-1"
       F40 "1"
    END DSRECORD
@@ -1237,7 +1237,7 @@ BEGIN DSEXECJOB
       Identifier "OshExecuter.sh"
       TERMINATOR =+=+=+=
 #!/bin/sh
-# Shell script for Datastage to execute an osh script, generated at 2016-11-18 15:31:12
+# Shell script for Datastage to execute an osh script, generated at 2016-11-18 15:51:26
 # Compiler runtime stamp 9.1///55/C
 #
 # Parameters:
@@ -1272,7 +1272,7 @@ echo '##OSHRETVAL' $oshcode
    BEGIN DSSCRIPT
       Identifier "OshScript.osh"
       TERMINATOR =+=+=+=
-# OSH / orchestrate script for Job LOAD_LSAMS_STG compiled at 15:31:12 18 NOV 2016
+# OSH / orchestrate script for Job LOAD_LSAMS_STG compiled at 15:51:26 18 NOV 2016
 #################################################################
 #### STAGE: Sequential_File_0
 ## Operator
@@ -1313,7 +1313,7 @@ copy
 0> [] 'Copy_3:DSLink5.v'
 ;
 #################################################################
-#### STAGE: LSAMS
+#### STAGE: LSAMS_INSERT
 ## Operator
 pxbridge
 ## Operator options
@@ -1348,7 +1348,7 @@ pxbridge
 }'
    
 ## General options
-[ident('LSAMS'); jobmon_ident('LSAMS')]
+[ident('LSAMS_INSERT'); jobmon_ident('LSAMS_INSERT')]
 ## Inputs
 0< [] 'Copy_3:DSLink5.v'
 ;
